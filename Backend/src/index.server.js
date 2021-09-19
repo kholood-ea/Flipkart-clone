@@ -5,7 +5,7 @@ const bodyParser=require('body-parser')
 const mongoose = require ('mongoose')
 
 // routes
-const userRoutes=require('./routes/user')
+const authRoutes=require('./routes/auth')
 
 
 // environment variables
@@ -15,7 +15,7 @@ env.config()
 //middleware for parsing request body
 // app.use(express.json())
  app.use(bodyParser())
- app.use('/api',userRoutes )
+ app.use('/api',authRoutes )
 
 
 mongoose.connect(
