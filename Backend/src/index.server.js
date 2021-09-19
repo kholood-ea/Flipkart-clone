@@ -5,6 +5,7 @@ const bodyParser=require('body-parser')
 const mongoose = require ('mongoose')
 
 // routes
+const adminRoutes=require('./routes/admin/auth')
 const authRoutes=require('./routes/auth')
 
 
@@ -16,6 +17,7 @@ env.config()
 // app.use(express.json())
  app.use(bodyParser())
  app.use('/api',authRoutes )
+ app.use('/api',adminRoutes )
 
 
 mongoose.connect(
