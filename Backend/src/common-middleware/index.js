@@ -13,7 +13,6 @@ exports.requireSignin = (req, res, next) => {
 exports.userMiddleware = (req, res, next) => {};
 
 exports.adminMiddleware = (req, res, next) => {
-  console.log(req.user);
   if (req.user.role !== "admin") {
     return res.status(400).json({ message: "Unauthorized Access" });
   }
