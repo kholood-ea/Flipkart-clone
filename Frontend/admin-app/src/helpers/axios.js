@@ -1,8 +1,8 @@
 import axios from "axios";
-import * as data from "../urlConfig.Json";
+import { API } from "../urlConfig.js";
 
 const axiosInstance = axios.create({
-  baseURL: data.api,
+  baseURL: API,
   //   headers:{
   //       'Authorization':""
   //   }
