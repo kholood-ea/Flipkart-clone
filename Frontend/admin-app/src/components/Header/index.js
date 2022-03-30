@@ -1,9 +1,34 @@
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
+import { useSelector } from "react-redux";
 export default function Header() {
+  const auth = useSelector((state) => state.auth);
+
+  const renderLoggedInLinks = () => (
+    <Nav>
+      <li className="nav-item">
+        <span className="nav-link">Signout</span>
+      </li>
+    </Nav>
+  );
+  const renderNonLoggedInLinks = () => (
+    <Nav>
+      <Nav.Link href="/signup">Signup</Nav.Link>
+      <Nav.Link eventKey={2} href="/signin">
+        Signin
+      </Nav.Link>
+    </Nav>
+  );
+
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      style={{ zIndex: 1 }}
+    >
+      <Container fluid>
         <Navbar.Brand href="/">Admin Dashboard</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -22,12 +47,7 @@ export default function Header() {
               </NavDropdown.Item>
             </NavDropdown>*/}
           </Nav>
-          <Nav>
-            <Nav.Link href="/signup">Signup</Nav.Link>
-            <Nav.Link eventKey={2} href="/signin">
-              Signin
-            </Nav.Link>
-          </Nav>
+          {auth.authenticate ? renderLoggedInLinks() : renderNonLoggedInLinks()}
         </Navbar.Collapse>
       </Container>
     </Navbar>
