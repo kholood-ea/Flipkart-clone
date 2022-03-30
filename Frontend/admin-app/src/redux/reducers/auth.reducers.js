@@ -32,7 +32,12 @@ const Auth = (state = initState, action) => {
       break;
     case authConstants.LOGIN_FAILURE:
       state = {
-        initState,
+        ...initState,
+      };
+      break;
+    case authConstants.LOGOUT_REQUEST:
+      state = {
+        ...initState,
       };
       break;
 

@@ -1,13 +1,20 @@
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { signout } from "../../redux/actions/auth.actions";
 export default function Header() {
   const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(signout());
+  };
 
   const renderLoggedInLinks = () => (
     <Nav>
       <li className="nav-item">
-        <span className="nav-link">Signout</span>
+        <span className="nav-link" onClick={logout}>
+          Signout
+        </span>
       </li>
     </Nav>
   );
