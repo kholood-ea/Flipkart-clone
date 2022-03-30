@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../../components/Layout";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
-import { Navigate, Route, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Input from "../../components/UI/Input";
-import { login, isLoggedIn } from "../../redux/actions/auth.actions";
+import { login } from "../../redux/actions/auth.actions";
 import Hooks from "./Hooks";
 
 export default function Signin() {
@@ -23,8 +23,6 @@ export default function Signin() {
   useEffect(() => {
     if (auth.authenticate === true) {
       navigate("/");
-    } else {
-      dispatch(isLoggedIn());
     }
   });
 

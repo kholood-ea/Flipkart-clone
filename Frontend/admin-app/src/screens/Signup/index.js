@@ -1,10 +1,21 @@
-import React from "react";
-import Layout from "../../components/Layout";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 
+import Layout from "../../components/Layout";
 import Input from "../../components/UI/Input";
 
 export default function Signup() {
+  const navigate = useNavigate();
+  const auth = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (auth.authenticate === true) {
+      navigate("/");
+    }
+  });
   return (
     <Layout>
       <Container>
