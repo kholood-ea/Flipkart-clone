@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import { useState } from "react";
 
 const Hooks = () => {
   const [userCredentials, setUserCredentials] = useState({
