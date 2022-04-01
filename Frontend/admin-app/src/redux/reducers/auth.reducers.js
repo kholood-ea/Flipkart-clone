@@ -11,7 +11,7 @@ const initState = {
   authenticating: false,
 };
 
-const Auth = (state = initState, action) => {
+const authReducer = (state = initState, action) => {
   console.log(state, action);
   switch (action.type) {
     case authConstants.LOGIN_REQUEST:
@@ -46,4 +46,4 @@ const Auth = (state = initState, action) => {
   }
   return state;
 };
-export default Auth;
+export default authReducer;
