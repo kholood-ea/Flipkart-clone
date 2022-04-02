@@ -6,7 +6,6 @@ const initState = {
 };
 
 const userReducer = (state = initState, action) => {
-  console.log(state, action);
   switch (action.type) {
     case userConstants.SIGNUP_REQUEST:
       state = {
