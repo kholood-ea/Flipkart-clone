@@ -95,6 +95,7 @@ export default function Category() {
                 setCatrgory((prev) => ({ ...prev, parentId: e.target.value }))
               }
               value={category.parentId}
+              style={{ marginBottom: 15 }}
             >
               <option>Select Category</option>
 
