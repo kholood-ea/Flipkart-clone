@@ -5,6 +5,8 @@ const token = window.localStorage.getItem("token");
 const axiosInstance = axios.create({
   baseURL: API,
   headers: {
+    // "Content-Type": "multipart/form-data",
+    accept: "*/*",
     Authorization: token ? `Bearer ${token}` : "",
   },
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Navbar, Nav } from "react-bootstrap";
+import { Container, Row, Col, Nav } from "react-bootstrap";
 
 import "./style.css";
 export default function Sidebar() {
@@ -12,6 +12,9 @@ export default function Sidebar() {
               <Nav.Link href="/">Home</Nav.Link>
             </li>
             <li>
+              <Nav.Link href="/Category">Category</Nav.Link>
+            </li>
+            <li>
               <Nav.Link href="/products">Products</Nav.Link>
             </li>
             <li>
@@ -19,9 +22,9 @@ export default function Sidebar() {
             </li>
           </ul>
         </Col>
-        <Col md={10} style={{ marginLeft: "auto" }}>
+        {/* <Col md={10} style={{ marginLeft: "auto" }}>
           Container
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

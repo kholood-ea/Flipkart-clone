@@ -2,13 +2,12 @@ const slugify = require("slugify");
 const Category = require("../models/category");
 
 exports.addCategory = (req, res) => {
-  let categoryURL;
   const categoryObj = {
     name: req.body.name,
     slug: slugify(req.body.name),
   };
   if (req.file) {
-    categoryObj.categoryImage = categoryURL =
+    categoryObj.categoryImage =
       process.env.API + "/public/" + req.file.filename;
   }
   if (req.body.parentId) {
@@ -38,6 +37,7 @@ const createCategories = (cats, ParentId = null) => {
       _id: cate._id,
       name: cate.name,
       slug: cate.slug,
+      parentId: cate.parentId,
       children: createCategories(cats, cate._id),
     });
   }
