@@ -33,3 +33,14 @@ exports.createProduct = (req, res) => {
 
   //   res.status(200).json({ message: "Hello" });
 };
+
+exports.getProducts = (req, res) => {
+  Product.find({}).exec((error, products) => {
+    if (error) {
+      return res.status(400).json({ error });
+    }
+    if (products) {
+      res.status(200).json({ products });
+    }
+  });
+};
